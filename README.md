@@ -18,15 +18,60 @@ Contact Form Plus works on Craft 2.4.x and Craft 2.5.x.
 
 ## Contact Form Plus Overview
 
--Insert text here-
-
-## Configuring Contact Form Plus
-
--Insert text here-
+Contact Form Plus enables you to re-use the Pixel & Tonic Contact Form throughout your site assigning different subject lines and to email addresses. It also provides the ability to hide the message area from the front end templates when it is not required.
 
 ## Using Contact Form Plus
 
--Insert text here-
+Using the fieldtype is straight forward
+
+![Screenshot](resources/screenshots/config-message-hidden.png)
+
+![Screenshot](resources/screenshots/config-message-visible.png)
+
+## Contact Form Plus Template Code
+
+    {% macro errorList(errors) %}
+        {% if errors %}
+            <ul class="errors">
+                {% for error in errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endmacro %}
+
+    {% from _self import errorList %}
+
+    <form method="post" action="" accept-charset="UTF-8">
+        {{ getCsrfInput() }}
+        <input type="hidden" name="action" value="contactForm/sendMessage">
+        <input type="hidden" name="redirect" value="contact/thanks">
+        {{ el.contactForm.hiddens }}
+
+        <h3><label for="fromName">Your Name</label></h3>
+        <input id="fromName" type="text" name="fromName" value="{% if message is defined %}{{ message.fromName }}{% endif %}">
+        {{ message is defined and message ? errorList(message.getErrors('fromName')) }}
+
+        <h3><label for="fromEmail">Your Email</label></h3>
+        <input id="fromEmail" type="email" name="fromEmail" value="{% if message is defined %}{{ message.fromEmail }}{% endif %}">
+        {{ message is defined and message ? errorList(message.getErrors('fromEmail')) }}
+
+        <h3><label for="subject">Subject</label></h3>
+        <input id="subject" type="text" name="subject" value="{% if message is defined %}{{ message.subject }}{% endif %}">
+        {{ message is defined and message ? errorList(message.getErrors('subject')) }}
+
+        <h3><label for="telephone">Telephone</label></h3>
+        <input id="telephone" type="text" name="message[telephone]" value="">
+
+        {% if not el.contactForm.hideMessage %}
+            <h3><label for="message">Message</label></h3>
+            <textarea rows="10" cols="40" id="message" name="message[body]">{% if message is defined %}{{ message.message }}{% endif %}</textarea>
+            {{ message is defined and message ? errorList(message.getErrors('message')) }}
+        {% endif %}
+
+        <input type="submit" value="Send">
+    </form>
+
 
 ## Contact Form Plus Roadmap
 
