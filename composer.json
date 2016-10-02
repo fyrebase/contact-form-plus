@@ -1,0 +1,14 @@
+{
+	"name": "fyrebase/contactformplus",
+	"description": "Power up the Pixel &amp; Tonic Contact Form plugin!",
+	"type": "craft-plugin",
+	"authors": [
+		{
+			"name": "Fyrebase",
+			"homepage": "fyrebase.com"
+		}
+	],
+	"require": {
+		"composer/installers": "~1.0"
+	}
+}

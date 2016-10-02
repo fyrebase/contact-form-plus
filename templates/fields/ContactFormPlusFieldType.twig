@@ -1,0 +1,68 @@
+{#
+/**
+ * Contact Form Plus plugin for Craft CMS
+ *
+ * ContactFormPlusFieldType HTML
+ *
+ * @author    Fyrebase
+ * @copyright Copyright (c) 2016 Fyrebase
+ * @link      fyrebase.com
+ * @package   ContactFormPlus
+ * @since     0.0.1
+ */
+#}
+
+{% import "_includes/forms" as forms %}
+
+{% includeCssResource "lib/redactor/redactor.css" %}
+{% includeJsResource "lib/redactor/redactor.js" %}
+
+{{ forms.textField({
+		id: id ~ 'toEmails',
+		label: 'To Email Address',
+		instructions: 'Comma separate email addresses',
+		class: 'nicetext',
+		name: name ~ '[toEmails]',
+		value: values.toEmails,
+		errors: values.getErrors('toEmails'),
+		required: false,
+}) }}
+
+{{ forms.textField({
+		id: id ~ 'subject',
+		label: 'Subject Line',
+		instructions: 'If the subject line is present in the form this will be prefixed otherwise it will be the subject line',
+		class: 'nicetext',
+		name: name ~ '[subject]',
+		value: values.subject,
+		errors: values.getErrors('subject'),
+		required: false,
+}) }}
+
+{{ forms.lightswitchField({
+		label: 'Hide Message'|t,
+		name: name ~ '[hideMessage]',
+		on: values.hideMessage,
+		toggle: id ~ 'message-field'
+}) }}
+
+{{ forms.textareaField({
+		id: id ~ 'message',
+		label: 'Message',
+		instructions: 'If a message area is not shown in the form a message body must be provide.<br> The follwoing tokens will be replaced - `{fromName}` and `{fromEmail}`.',
+		class: 'contactformplus__m',
+		name: name ~ '[message]',
+		value: values.message,
+		errors: values.getErrors('message'),
+		required: false,
+}) }}
+
+{% includecss %}
+		div[id$='{{ id }}-field'] > .heading {
+			display: none;
+		}
+
+		div[id$='{{ id }}-field'] {
+			margin-top: -24px;
+		}
+{% endincludecss %}
