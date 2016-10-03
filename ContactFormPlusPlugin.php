@@ -48,7 +48,7 @@ class ContactFormPlusPlugin extends BasePlugin
 		 */
 		public function getDocumentationUrl()
 		{
-				return 'https://github.com/fyrebase/contactformplus/blob/master/README.md';
+				return 'https://github.com/fyrebase/contact-form-plus/blob/master/README.md';
 		}
 
 		/**
@@ -56,7 +56,7 @@ class ContactFormPlusPlugin extends BasePlugin
 		 */
 		public function getReleaseFeedUrl()
 		{
-				return 'https://raw.githubusercontent.com/fyrebase/contactformplus/master/releases.json';
+				return 'https://raw.githubusercontent.com/fyrebase/contact-form-plus/master/releases.json';
 		}
 
 		/**
@@ -88,7 +88,7 @@ class ContactFormPlusPlugin extends BasePlugin
 		 */
 		public function getDeveloperUrl()
 		{
-				return 'fyrebase.com';
+				return 'http://fyrebase.com';
 		}
 
 		/**
