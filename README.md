@@ -14,7 +14,7 @@ To install Contact Form Plus, follow these steps:
 4. Install plugin in the Craft Control Panel under Settings > Plugins
 5. The plugin folder should be named `contactformplus` for Craft to see it.  GitHub recently started appending `-master` (the branch name) to the name of the folder for zip file downloads.
 
-Contact Form Plus works on Craft 2.4.x and Craft 2.5.x.
+Contact Form Plus works on Craft 2.6.x.
 
 ## Contact Form Plus Overview
 
@@ -105,4 +105,4 @@ Some things to do, and ideas for potential features:
 
 * Initial release
 
-Brought to you by [Fyrebase](fyrebase.com)
+Brought to you by [Fyrebase](http://fyrebase.com)
