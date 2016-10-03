@@ -35,7 +35,12 @@ class ContactFormPlusModel extends BaseModel
 				return $this->id . '-' . $this->handle;
 		}
 
-		public function hiddens()
+		public function getHideMessage()
+		{
+			return $this->hideMessage;
+		}
+
+		public function getHiddens()
 		{
 				$str = '<input type="hidden" name="cf" value="' .$this->id . '-' . $this->handle . '">';
 				if ($this->hideMessage) {

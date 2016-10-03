@@ -20,6 +20,8 @@ Contact Form Plus works on Craft 2.4.x and Craft 2.5.x.
 
 Contact Form Plus enables you to re-use the Pixel & Tonic Contact Form throughout your site assigning different subject lines and to email addresses. It also provides the ability to hide the message area from the front end templates when it is not required.
 
+Works within **Matrix** and **Neo** blocks!
+
 ## Using Contact Form Plus
 
 Using the fieldtype is straight forward
@@ -29,6 +31,24 @@ Using the fieldtype is straight forward
 ![Screenshot](resources/screenshots/config-message-visible.png)
 
 ## Contact Form Plus Template Code
+
+### Rendering the Contact Form Plus hidden fields
+
+    {{ el.contactForm.hiddens }}
+
+or alternatively
+
+    {{ el.contactForm.getHiddens() }}
+
+### Check if the message is to be displayed
+
+    {% if not el.contactForm.hideMessage %}...{% endif %}
+
+or alternatively
+
+    {% if not el.contactForm.getHideMessage() %}...{% endif %}
+
+### Full contact form example:
 
     {% macro errorList(errors) %}
         {% if errors %}
